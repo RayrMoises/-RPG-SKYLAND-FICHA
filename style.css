@@ -1,0 +1,1864 @@
+/* =========================================================
+   SKYLAND RPG
+   FICHA DIGITAL
+   IDENTIDADE VISUAL
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS GLOBAIS
+   ========================================================= */
+
+:root {
+
+    --preto-absoluto: #000000;
+
+    --fundo-principal: #05070b;
+
+    --fundo-secundario: #080d16;
+
+    --fundo-card: #0b111c;
+
+    --fundo-card-hover: #0f1928;
+
+
+    --azul-neon: #297fff;
+
+    --azul-eletrico: #003b94;
+
+    --azul-celeste: #0017e8;
+
+    --azul-marinho: #06152d;
+
+
+    --texto-principal: #e8f9ff;
+
+    --texto-secundario: #8fa9bb;
+
+    --texto-fraco: #587080;
+
+
+    --borda: rgba(0, 54, 232, 0.28);
+
+    --borda-forte: rgba(22, 115, 255, 0.7);
+
+
+    --sombra-neon:
+
+        0 0 12px rgba(0, 110, 255, 0.18);
+
+
+    --sombra-neon-forte:
+
+        0 0 18px rgba(0, 68, 255, 0.4);
+
+
+    --raio-pequeno: 6px;
+
+    --raio-medio: 10px;
+
+    --raio-grande: 14px;
+
+
+    --transicao:
+
+        0.25s ease;
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+
+            circle at top,
+
+            #0a1b31 0%,
+
+            var(--fundo-principal) 45%
+
+        );
+
+    color: var(--texto-principal);
+
+    font-family:
+
+        "Segoe UI",
+
+        Arial,
+
+        sans-serif;
+
+}
+
+
+/* =========================================================
+   ESTRUTURA PRINCIPAL
+   ========================================================= */
+
+.ficha {
+
+    width: min(
+
+        1400px,
+
+        calc(100% - 40px)
+
+    );
+
+    margin: 30px auto;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(8, 15, 27, 0.98),
+
+            rgba(3, 6, 11, 0.98)
+
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-grande);
+
+    box-shadow:
+
+        0 0 35px rgba(0, 0, 0, 0.8),
+
+        0 0 35px rgba(0, 102, 255, 0.08);
+
+    overflow: hidden;
+
+}
+
+.identidade img {
+    width: 60px;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.cabecalho {
+
+    min-height: 90px;
+
+    padding: 20px 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid var(--borda);
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(0, 102, 255, 0.08),
+
+            transparent 50%,
+
+            rgba(0, 210, 255, 0.04)
+
+        );
+
+}
+
+
+/* =========================================================
+   IDENTIDADE
+   ========================================================= */
+
+.identidade {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+}
+
+
+.simbolo {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--azul-neon);
+
+    font-size: 28px;
+
+    border: 1px solid var(--borda-forte);
+
+    border-radius: 50%;
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+.identidade h1 {
+
+    color: var(--azul-neon);
+
+    font-size: 1.5rem;
+
+    letter-spacing: 0.25em;
+
+}
+
+
+.identidade p {
+
+    margin-top: 4px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.2em;
+
+}
+
+
+/* =========================================================
+   STATUS DA FICHA
+   ========================================================= */
+
+.status-ficha {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+.indicador {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--azul-neon);
+
+    box-shadow:
+
+        0 0 8px var(--azul-neon),
+
+        0 0 18px var(--azul-neon);
+
+    animation: pulsar 2s infinite;
+
+}
+
+
+@keyframes pulsar {
+
+    0%,
+
+    100% {
+
+        opacity: 0.55;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   IDENTIDADE DO PERSONAGEM
+   ========================================================= */
+
+.identidade-personagem {
+
+    display: grid;
+
+    grid-template-columns:
+
+        250px
+
+        1fr;
+
+    gap: 28px;
+
+    padding: 28px;
+
+    border-bottom: 1px solid var(--borda);
+
+}
+
+
+/* =========================================================
+   IMAGEM DO PERSONAGEM
+   ========================================================= */
+
+.imagem-personagem {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.imagem-preview {
+
+    min-height: 230px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    border: 1px dashed var(--borda-forte);
+
+    border-radius: var(--raio-medio);
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(0, 102, 255, 0.15),
+
+            transparent 70%
+
+        );
+
+}
+
+
+.icone-imagem {
+
+    color: var(--azul-neon);
+
+    font-size: 42px;
+
+    text-shadow: 0 0 15px var(--azul-neon);
+
+}
+
+
+.imagem-preview p {
+
+    color: var(--texto-secundario);
+
+    text-align: center;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+.acoes-imagem {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.acoes-imagem button {
+
+    flex: 1;
+
+}
+
+
+/* =========================================================
+   DADOS DO PERSONAGEM
+   ========================================================= */
+
+.dados-personagem {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 24px;
+
+}
+
+
+.campo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.campo label {
+
+    color: var(--texto-secundario);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+.campo input,
+
+.campo select {
+
+    width: 100%;
+
+    padding: 13px 14px;
+
+    color: var(--texto-principal);
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-pequeno);
+
+    outline: none;
+
+    transition: var(--transicao);
+
+}
+
+
+.campo input:focus,
+
+.campo select:focus {
+
+    border-color: var(--azul-neon);
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+.campo select option {
+
+    background: var(--fundo-card);
+
+    color: var(--texto-principal);
+
+}
+
+
+.linha-campos {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.campo-com-ajuda {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.campo-com-ajuda select {
+
+    flex: 1;
+
+}
+
+
+.botao-ajuda {
+
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    color: var(--azul-neon);
+
+    background: transparent;
+
+    border: 1px solid var(--borda-forte);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+
+}
+
+
+.botao-ajuda:hover {
+
+    color: var(--preto-absoluto);
+
+    background: var(--azul-neon);
+
+    box-shadow: var(--sombra-neon-forte);
+
+}
+
+
+/* =========================================================
+   BOTÕES GERAIS
+   ========================================================= */
+
+button {
+
+    font: inherit;
+
+}
+
+
+.acoes-imagem button {
+
+    padding: 10px;
+
+    color: var(--texto-secundario);
+
+    background: transparent;
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-pequeno);
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+
+}
+
+
+.acoes-imagem button:hover {
+
+    color: var(--azul-neon);
+
+    border-color: var(--azul-neon);
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO DAS ABAS
+   ========================================================= */
+
+.navegacao-abas {
+
+    display: flex;
+
+    align-items: stretch;
+
+    border-bottom: 1px solid var(--borda);
+
+    overflow-x: auto;
+
+}
+
+
+.aba {
+
+    position: relative;
+
+    flex: 1;
+
+    min-width: 150px;
+
+    padding: 16px 20px;
+
+    color: var(--texto-secundario);
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    letter-spacing: 0.08em;
+
+    transition: var(--transicao);
+
+}
+
+
+.aba span {
+
+    margin-right: 8px;
+
+    color: var(--azul-eletrico);
+
+}
+
+
+.aba:hover {
+
+    color: var(--texto-principal);
+
+    background: rgba(0, 102, 255, 0.08);
+
+}
+
+
+.aba.ativa {
+
+    color: var(--azul-neon);
+
+}
+
+
+.aba.ativa::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 18px;
+
+    bottom: -1px;
+
+    left: 18px;
+
+    height: 2px;
+
+    background: var(--azul-neon);
+
+    box-shadow: 0 0 10px var(--azul-neon);
+
+}
+
+
+/* =========================================================
+   CONTEÚDO DAS ABAS
+   ========================================================= */
+
+.conteudo-abas {
+
+    padding: 28px;
+
+}
+
+
+.conteudo-aba {
+
+    display: none;
+
+}
+
+
+.conteudo-aba.ativo {
+
+    display: block;
+
+    animation: aparecer 0.35s ease;
+
+}
+
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CONTEÚDO
+   ========================================================= */
+
+.cabecalho-conteudo {
+
+    margin-bottom: 30px;
+
+}
+
+
+.etiqueta-secao {
+
+    color: var(--azul-celeste);
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+.cabecalho-conteudo h2 {
+
+    margin-top: 6px;
+
+    color: var(--texto-principal);
+
+    font-size: 1.8rem;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+/* =========================================================
+   SEÇÕES DE ATRIBUTOS
+   ========================================================= */
+
+.secao-atributos {
+
+    margin-bottom: 38px;
+
+}
+
+
+.titulo-secao-atributos {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.simbolo-secao {
+
+    color: var(--azul-neon);
+
+    font-size: 1.5rem;
+
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+
+}
+
+
+.titulo-secao-atributos h3 {
+
+    color: var(--texto-principal);
+
+    font-size: 1rem;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+.titulo-secao-atributos p {
+
+    margin-top: 4px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.8rem;
+
+}
+
+
+/* =========================================================
+   RECURSOS
+   HP / MANA / STAMINA
+   ========================================================= */
+
+.grade-recursos {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+}
+
+
+.card-recurso,
+
+.card-experiencia {
+
+    padding: 20px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(10, 25, 43, 0.95),
+
+            rgba(5, 10, 18, 0.95)
+
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-medio);
+
+    box-shadow: var(--sombra-neon);
+
+    transition: var(--transicao);
+
+}
+
+
+.card-recurso:hover,
+
+.card-experiencia:hover {
+
+    border-color: var(--borda-forte);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--sombra-neon-forte);
+
+}
+
+
+.cabecalho-recurso,
+
+.cabecalho-experiencia {
+
+    margin-bottom: 14px;
+
+}
+
+
+.cabecalho-recurso h4,
+
+.cabecalho-experiencia h4 {
+
+    color: var(--azul-neon);
+
+    font-size: 0.85rem;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.valor-recurso,
+
+.valor-experiencia {
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    margin-bottom: 14px;
+
+}
+
+
+.valor-recurso strong,
+.valor-experiencia strong {
+
+    color: var(--texto-principal);
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+
+}
+
+
+.valor-recurso span,
+
+.valor-experiencia span {
+
+    color: var(--texto-fraco);
+
+}
+
+/* =========================================================
+   INPUTS DOS VALORES ATUAIS
+   HP / MANA / STAMINA / XP
+   ========================================================= */
+
+.valor-recurso input,
+.valor-experiencia input {
+
+    width: auto;
+
+    min-width: 45px;
+
+    max-width: 100px;
+
+    padding: 0;
+
+    color: var(--texto-principal);
+
+    font: inherit;
+
+    font-size: 1.4rem;
+
+    font-weight: 700;
+
+    text-align: right;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    box-shadow: none;
+
+    appearance: textfield;
+
+}
+
+
+/* Remove as setas padrão dos inputs numéricos */
+
+.valor-recurso input::-webkit-outer-spin-button,
+
+.valor-recurso input::-webkit-inner-spin-button,
+
+.valor-experiencia input::-webkit-outer-spin-button,
+
+.valor-experiencia input::-webkit-inner-spin-button {
+
+    margin: 0;
+
+    appearance: none;
+
+}
+
+
+/* Remove bordas e efeitos herdados ao focar */
+
+.valor-recurso input:focus,
+
+.valor-experiencia input:focus {
+
+    border: none;
+
+    outline: none;
+
+    box-shadow: none;
+
+}
+
+
+/* Efeito visual discreto enquanto o jogador edita */
+
+.valor-recurso input:focus,
+
+.valor-experiencia input:focus {
+
+    color: var(--azul-neon);
+
+}
+
+
+/* =========================================================
+   BARRAS
+   ========================================================= */
+
+.barra-recurso,
+
+.barra-experiencia {
+
+    width: 100%;
+
+    height: 10px;
+
+    overflow: hidden;
+
+    background: #02050a;
+
+    border: 1px solid rgba(0, 162, 232, 0.2);
+
+    border-radius: 999px;
+
+}
+
+
+.barra-recurso-preenchimento,
+
+.barra-experiencia-preenchimento {
+
+    width: 0%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            var(--azul-eletrico),
+
+            var(--azul-neon)
+
+        );
+
+    border-radius: inherit;
+
+    box-shadow: 0 0 12px var(--azul-neon);
+
+    transition: width 0.35s ease;
+
+}
+
+
+/* =========================================================
+   CONTROLES DE RECURSO
+   ========================================================= */
+
+.controles-recurso {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: 16px;
+
+}
+
+
+.controles-recurso span {
+
+    color: var(--texto-fraco);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+.botao-recurso {
+
+    width: 32px;
+
+    height: 32px;
+
+    color: var(--azul-neon);
+
+    background: transparent;
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-pequeno);
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+
+}
+
+
+.botao-recurso:hover {
+
+    color: var(--preto-absoluto);
+
+    background: var(--azul-neon);
+
+    border-color: var(--azul-neon);
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+/* =========================================================
+   EXPERIÊNCIA
+   ========================================================= */
+
+.card-experiencia {
+
+    max-width: 100%;
+
+}
+
+
+.valor-experiencia {
+
+    justify-content: flex-start;
+
+}
+
+
+/* =========================================================
+   ATRIBUTOS DE COMBATE
+   ========================================================= */
+
+.grade-atributos-combate {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.card-atributo-visual {
+
+    min-height: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-medio);
+
+    transition: var(--transicao);
+
+}
+
+
+.card-atributo-visual:hover {
+
+    border-color: var(--borda-forte);
+
+    background: var(--fundo-card-hover);
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+.card-atributo-visual span {
+
+    color: var(--texto-secundario);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+.card-atributo-visual strong {
+
+    color: var(--azul-neon);
+
+    font-size: 1.8rem;
+
+}
+
+
+/* =========================================================
+   ATRIBUTOS MANUAIS
+   ========================================================= */
+
+.lista-atributos {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(2, 1fr);
+
+    gap: 14px;
+
+}
+
+
+.card-atributo {
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 16px;
+
+    padding: 18px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            var(--fundo-card),
+
+            #060b12
+
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-medio);
+
+    transition: var(--transicao);
+
+}
+
+
+.card-atributo:hover {
+
+    border-color: var(--borda-forte);
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+.atributo-cabecalho {
+
+    grid-column: 1;
+
+}
+
+
+.atributo-cabecalho > div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.atributo-indicador {
+
+    color: var(--azul-neon);
+
+    text-shadow: 0 0 8px var(--azul-neon);
+
+}
+
+
+.atributo-cabecalho h3 {
+
+    color: var(--texto-principal);
+
+    font-size: 0.95rem;
+
+}
+
+
+.atributo-descricao {
+
+    grid-column: 1;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.78rem;
+
+    line-height: 1.6;
+
+}
+
+
+.atributo-controle {
+
+    grid-column: 2;
+
+    grid-row: 1 / span 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.botao-atributo {
+
+    width: 36px;
+
+    height: 36px;
+
+    color: var(--azul-neon);
+
+    background: transparent;
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-pequeno);
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    transition: var(--transicao);
+
+}
+
+
+.botao-atributo:hover {
+
+    color: var(--preto-absoluto);
+
+    background: var(--azul-neon);
+
+    border-color: var(--azul-neon);
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+.valor-atributo {
+
+    min-width: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 3px;
+
+}
+
+
+.pontos-atributo {
+
+    color: var(--texto-principal);
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+}
+
+
+.valor-atributo small {
+
+    color: var(--texto-fraco);
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 18px 28px;
+
+    color: var(--texto-fraco);
+
+    border-top: 1px solid var(--borda);
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(6px);
+
+}
+
+
+.modal-overlay.ativo {
+
+    display: flex;
+
+}
+
+
+.modal {
+
+    position: relative;
+
+    width: min(
+
+        600px,
+
+        100%
+
+    );
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            #0b1625,
+
+            #03070c
+
+        );
+
+    border: 1px solid var(--borda-forte);
+
+    border-radius: var(--raio-grande);
+
+    box-shadow: var(--sombra-neon-forte);
+
+}
+
+
+.modal-fechar {
+
+    position: absolute;
+
+    top: 14px;
+
+    right: 16px;
+
+    width: 34px;
+
+    height: 34px;
+
+    color: var(--texto-secundario);
+
+    background: transparent;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 1.4rem;
+
+    transition: var(--transicao);
+
+}
+
+
+.modal-fechar:hover {
+
+    color: var(--azul-neon);
+
+    border-color: var(--azul-neon);
+
+}
+
+
+.modal-cabecalho {
+
+    margin-bottom: 20px;
+
+}
+
+
+.modal-tipo {
+
+    color: var(--azul-celeste);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.modal h2 {
+
+    margin-top: 6px;
+
+    color: var(--azul-neon);
+
+    font-size: 1.8rem;
+
+}
+
+
+.modal-descricao {
+
+    color: var(--texto-secundario);
+
+    line-height: 1.7;
+
+}
+
+
+.modal-secao {
+
+    margin-top: 26px;
+
+}
+
+
+.modal-secao h3 {
+
+    margin-bottom: 12px;
+
+    color: var(--azul-neon);
+
+    font-size: 0.85rem;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+.lista-modificadores {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.modificador {
+
+    padding: 14px;
+
+    background: rgba(0, 102, 255, 0.06);
+
+    border-left: 2px solid var(--azul-neon);
+
+    border-radius: var(--raio-pequeno);
+
+}
+
+
+.modificador strong {
+
+    color: var(--texto-principal);
+
+}
+
+
+.modificador p {
+
+    margin-top: 6px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .identidade-personagem {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .imagem-personagem {
+
+        max-width: 350px;
+
+        margin: 0 auto;
+
+    }
+
+
+    .grade-recursos {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .grade-atributos-combate {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+
+    .ficha {
+
+        width: 100%;
+
+        margin: 0;
+
+        border: none;
+
+        border-radius: 0;
+
+    }
+
+
+    .cabecalho {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+    }
+
+
+    .status-ficha {
+
+        align-self: flex-end;
+
+    }
+
+
+    .identidade-personagem,
+
+    .conteudo-abas {
+
+        padding: 20px;
+
+    }
+
+
+    .linha-campos {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .grade-recursos,
+
+    .grade-atributos-combate,
+
+    .lista-atributos {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .card-atributo {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .atributo-controle {
+
+        grid-column: 1;
+
+        grid-row: auto;
+
+        justify-content: flex-end;
+
+    }
+
+
+    .rodape {
+
+        flex-direction: column;
+
+        gap: 8px;
+
+        padding: 18px 20px;
+
+    }
+
+}
+
+/* =========================================================
+   ESTILO PARA CAMPOS EDITÁVEIS (contenteditable)
+   ========================================================= */
+
+/* Remove qualquer borda/outline ao editar */
+.valor-recurso strong[contenteditable="true"],
+.valor-experiencia strong[contenteditable="true"],
+.valor-recurso .valor-recurso-atual[contenteditable="true"] {
+    outline: none !important;
+    border: none !important;
+    background: transparent;
+    padding: 0 4px; /* um pequeno espaçamento interno */
+    min-width: 30px; /* largura mínima para números */
+    display: inline-block; /* para o min-width funcionar */
+}
+
+/* Ajuste específico para XP (pode ser um pouco maior) */
+.valor-experiencia strong[contenteditable="true"] {
+    min-width: 40px;
+}
+
+/* Para dar um feedback visual sutil quando estiver editando */
+.valor-recurso strong[contenteditable="true"]:focus,
+.valor-experiencia strong[contenteditable="true"]:focus {
+    color: var(--azul-neon); /* mantém a cor, mas pode destacar */
+    /* Ou adicione um brilho suave, se desejar */
+    text-shadow: 0 0 8px rgba(0, 210, 255, 0.3);
+}
+
+.imagem-preview {
+    position: relative;
+    overflow: hidden;
+}
+.imagem-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.acoes-imagem button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

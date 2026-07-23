@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>[ RPG ] SKYLAND FICHA</title>
+
+    <link rel="shortcut icon" href="imgs/logo-sem-fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="ficha">
+
+        <!-- CABEÇALHO PRINCIPAL -->
+        <header class="cabecalho">
+
+            <div class="identidade">
+
+                <img src="/imgs/logo-sem-fundo.png">
+
+                <div>
+                    <h1>SKYLAND</h1>
+                    <p>FICHA DE PERSONAGEM</p>
+                </div>
+
+            </div>
+
+            <div class="status-ficha">
+
+                <span>FICHA ATIVA</span>
+
+                <span class="indicador"></span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ÁREA DE IDENTIDADE DO PERSONAGEM -->
+        <section class="identidade-personagem">
+
+            <!-- IMAGEM DO PERSONAGEM -->
+            <div class="imagem-personagem">
+
+                <div class="imagem-preview">
+
+                    <span class="icone-imagem">✦</span>
+
+                    <p>
+                        IMAGEM DO<br>
+                        PERSONAGEM
+                    </p>
+
+                </div>
+
+
+                <div class="acoes-imagem">
+
+                    <button
+                        type="button"
+                    >
+                        ADICIONAR IMAGEM
+                    </button>
+
+
+                    <button
+                        type="button"
+                    >
+                        REMOVER
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES PRINCIPAIS -->
+            <div class="dados-personagem">
+
+                <!-- NOME -->
+                <div class="campo campo-nome">
+
+                    <label for="nome-personagem">
+                        NOME DO PERSONAGEM
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="nome-personagem"
+                        placeholder="Digite o nome do personagem..."
+                    >
+
+                </div>
+
+
+                <!-- CLASSE E RAÇA -->
+                <div class="linha-campos">
+
+                    <!-- CLASSE -->
+                    <div class="campo">
+
+                        <label for="classe-personagem">
+                            CLASSE
+                        </label>
+
+
+                        <div class="campo-com-ajuda">
+
+                            <select id="classe-personagem">
+
+                                <option value="">
+                                    Selecione uma classe
+                                </option>
+
+
+                                <option value="guerreiro">
+                                    Guerreiro
+                                </option>
+
+
+                                <option value="espadachim">
+                                    Espadachim
+                                </option>
+
+
+                                <option value="ladino">
+                                    Ladino
+                                </option>
+
+
+                                <option value="atirador">
+                                    Atirador
+                                </option>
+
+
+                                <option value="mago">
+                                    Mago
+                                </option>
+
+                            </select>
+
+
+                            <button
+                                type="button"
+                                class="botao-ajuda"
+                                data-tipo="classe"
+                                title="Informações da classe"
+                            >
+                                ?
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RAÇA -->
+                    <div class="campo">
+
+                        <label for="raca-personagem">
+                            RAÇA
+                        </label>
+
+
+                        <div class="campo-com-ajuda">
+
+                            <select id="raca-personagem">
+
+                                <option value="">
+                                    Selecione uma raça
+                                </option>
+
+
+                                <option value="humano">
+                                    Humano
+                                </option>
+
+
+                                <option value="elfo">
+                                    Elfo
+                                </option>
+
+
+                                <option value="sylvara">
+                                    Sylvara
+                                </option>
+
+
+                                <option value="orc">
+                                    Orc
+                                </option>
+
+
+                                <option value="khaajit">
+                                    Khaajit
+                                </option>
+
+
+                                <option value="argoniano">
+                                    Argoniano
+                                </option>
+
+
+                                <option value="draknir">
+                                    Draknir
+                                </option>
+
+
+                                <option value="umbrys">
+                                    Umbrys
+                                </option>
+
+
+                                <option value="aetherion">
+                                    Aetherion
+                                </option>
+
+
+                                <option value="automotos">
+                                    Automotos
+                                </option>
+
+
+                                <option value="fungicos">
+                                    Fúngicos
+                                </option>
+
+
+                                <option value="aeris">
+                                    Aeris
+                                </option>
+
+                            </select>
+
+
+                            <button
+                                type="button"
+                                class="botao-ajuda"
+                                data-tipo="raca"
+                                title="Informações da raça"
+                            >
+                                ?
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NAVEGAÇÃO ENTRE ABAS -->
+        <nav class="navegacao-abas">
+
+            <button
+                class="aba ativa"
+                data-aba="atributos"
+                type="button"
+            >
+
+                <span>✦</span>
+
+                ATRIBUTOS
+
+            </button>
+
+
+            <button
+                class="aba"
+                data-aba="pericias"
+                type="button"
+            >
+
+                <span>✧</span>
+
+                PERÍCIAS
+
+            </button>
+
+
+            <button
+                class="aba"
+                data-aba="anotacoes"
+                type="button"
+            >
+
+                <span>◇</span>
+
+                ANOTAÇÕES
+
+            </button>
+
+
+            <button
+                class="aba"
+                data-aba="calculadora"
+                type="button"
+            >
+
+                <span>⌁</span>
+
+                CALCULADORA
+
+            </button>
+
+        </nav>
+
+
+        <!-- ÁREA PRINCIPAL DAS ABAS -->
+        <section class="conteudo-abas">
+
+            <!-- ATRIBUTOS -->
+<!-- ========================================= -->
+<!-- ABA DE ATRIBUTOS                         -->
+<!-- ========================================= -->
+
+<div
+    class="conteudo-aba ativo"
+    id="aba-atributos"
+>
+
+
+    <!-- ========================================= -->
+    <!-- CABEÇALHO                                -->
+    <!-- ========================================= -->
+
+    <div class="cabecalho-conteudo">
+
+        <div>
+
+            <span class="etiqueta-secao">
+                DESENVOLVIMENTO DO PERSONAGEM
+            </span>
+
+            <h2>
+                ATRIBUTOS
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- RECURSOS DO PERSONAGEM                   -->
+    <!-- ========================================= -->
+
+    <section class="secao-atributos">
+
+
+        <div class="titulo-secao-atributos">
+
+            <span class="simbolo-secao">
+                ✦
+            </span>
+
+            <div>
+
+                <h3>
+                    RECURSOS
+                </h3>
+
+                <p>
+                    Recursos atuais e capacidade máxima do personagem.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    <div class="grade-recursos">
+
+
+        <!-- ================================= -->
+        <!-- HP                                -->
+        <!-- ================================= -->
+
+        <article
+            class="card-recurso"
+            data-recurso="hp"
+        >
+
+            <div class="cabecalho-recurso">
+
+                <h4>
+                    HP
+                </h4>
+
+            </div>
+
+
+            <div class="valor-recurso">
+
+                <strong
+                    id="valor-hp-atual"
+                    class="valor-recurso-atual"
+                    data-recurso-atual="hp"
+                    contenteditable="true"
+                    role="textbox"
+                    aria-label="HP atual"
+                >
+                    0
+                </strong>
+
+                <span>
+                    /
+                </span>
+
+                <strong
+                    id="valor-hp-maximo"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="barra-recurso">
+
+                <div
+                    class="barra-recurso-preenchimento"
+                    id="barra-hp"
+                >
+                </div>
+
+            </div>
+
+
+            <div class="controles-recurso">
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="hp"
+                    data-acao="diminuir"
+                >
+                    −
+                </button>
+
+
+                <span>
+                    ALTERAR
+                </span>
+
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="hp"
+                    data-acao="aumentar"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- ================================= -->
+        <!-- MANA                              -->
+        <!-- ================================= -->
+
+        <article
+            class="card-recurso"
+            data-recurso="mana"
+        >
+
+            <div class="cabecalho-recurso">
+
+                <h4>
+                    MANA
+                </h4>
+
+            </div>
+
+
+            <div class="valor-recurso">
+
+                <strong
+                    id="valor-mana-atual"
+                    class="valor-recurso-atual"
+                    data-recurso-atual="mana"
+                    contenteditable="true"
+                    role="textbox"
+                    aria-label="Mana atual"
+                >
+                    0
+                </strong>
+
+                <span>
+                    /
+                </span>
+
+                <strong
+                    id="valor-mana-maximo"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="barra-recurso">
+
+                <div
+                    class="barra-recurso-preenchimento"
+                    id="barra-mana"
+                >
+                </div>
+
+            </div>
+
+
+            <div class="controles-recurso">
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="mana"
+                    data-acao="diminuir"
+                >
+                    −
+                </button>
+
+
+                <span>
+                    ALTERAR
+                </span>
+
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="mana"
+                    data-acao="aumentar"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <!-- ================================= -->
+        <!-- STAMINA                           -->
+        <!-- ================================= -->
+
+        <article
+            class="card-recurso"
+            data-recurso="stamina"
+        >
+
+            <div class="cabecalho-recurso">
+
+                <h4>
+                    STAMINA
+                </h4>
+
+            </div>
+
+
+            <div class="valor-recurso">
+
+                <strong
+                    id="valor-stamina-atual"
+                    class="valor-recurso-atual"
+                    data-recurso-atual="stamina"
+                    contenteditable="true"
+                    role="textbox"
+                    aria-label="Stamina atual"
+                >
+                    0
+                </strong>
+
+                <span>
+                    /
+                </span>
+
+                <strong
+                    id="valor-stamina-maximo"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="barra-recurso">
+
+                <div
+                    class="barra-recurso-preenchimento"
+                    id="barra-stamina"
+                >
+                </div>
+
+            </div>
+
+
+            <div class="controles-recurso">
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="stamina"
+                    data-acao="diminuir"
+                >
+                    −
+                </button>
+
+
+                <span>
+                    ALTERAR
+                </span>
+
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="stamina"
+                    data-acao="aumentar"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- EXPERIÊNCIA E LEVEL                     -->
+    <!-- ========================================= -->
+
+    <section class="secao-atributos">
+
+
+        <div class="titulo-secao-atributos">
+
+            <span class="simbolo-secao">
+                ◈
+            </span>
+
+            <div>
+
+                <h3>
+                    PROGRESSÃO
+                </h3>
+
+                <p>
+                    Experiência acumulada e nível atual do personagem.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <article
+            class="card-experiencia"
+            data-recurso="xp"
+        >
+
+
+            <div class="cabecalho-experiencia">
+
+                <h4 id="nivel-personagem">
+                    LEVEL 1
+                </h4>
+
+            </div>
+
+
+            <div class="valor-experiencia">
+
+            <strong id="xp-atual" data-recurso-atual="xp">
+                0
+            </strong>
+
+                <span>
+                    /
+                </span>
+
+                <strong
+                    id="xp-proximo-nivel"
+                >
+                    100
+                </strong>
+
+                <span>
+                    XP
+                </span>
+
+            </div>
+
+
+            <div class="barra-experiencia">
+
+                <div
+                    class="barra-experiencia-preenchimento"
+                    id="barra-xp"
+                >
+                </div>
+
+            </div>
+
+
+            <div class="controles-recurso">
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="xp"
+                    data-acao="diminuir"
+                >
+                    −
+                </button>
+
+
+                <span>
+                    ALTERAR XP
+                </span>
+
+
+                <button
+                    type="button"
+                    class="botao-recurso"
+                    data-recurso="xp"
+                    data-acao="aumentar"
+                >
+                    +
+                </button>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- ATRIBUTOS DE COMBATE                    -->
+    <!-- ========================================= -->
+
+    <section class="secao-atributos">
+
+
+        <div class="titulo-secao-atributos">
+
+            <span class="simbolo-secao">
+                ⚔
+            </span>
+
+            <div>
+
+                <h3>
+                    ATRIBUTOS DE COMBATE
+                </h3>
+
+                <p>
+                    Valores totais utilizados na resolução das ações do personagem.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="grade-atributos-combate">
+
+
+            <article class="card-atributo-visual">
+
+                <span>
+                    DANO FÍSICO
+                </span>
+
+                <strong id="valor-dano-fisico">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article class="card-atributo-visual">
+
+                <span>
+                    DEFESA FÍSICA
+                </span>
+
+                <strong id="valor-defesa-fisica">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article class="card-atributo-visual">
+
+                <span>
+                    DEFESA MÁGICA
+                </span>
+
+                <strong id="valor-defesa-magica">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article class="card-atributo-visual">
+
+                <span>
+                    EVASIVA
+                </span>
+
+                <strong id="valor-evasiva">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article class="card-atributo-visual">
+
+                <span>
+                    DANO MÁGICO
+                </span>
+
+                <strong id="valor-dano-magico">
+                    0
+                </strong>
+
+            </article>
+
+
+            <article class="card-atributo-visual">
+
+                <span>
+                    DANO DE PROJÉTIL
+                </span>
+
+                <strong id="valor-dano-projetil">
+                    0
+                </strong>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- ATRIBUTOS MANUAIS                       -->
+    <!-- ========================================= -->
+
+    <section class="secao-atributos">
+
+
+        <div class="titulo-secao-atributos">
+
+            <span class="simbolo-secao">
+                ◇
+            </span>
+
+            <div>
+
+                <h3>
+                    ATRIBUTOS MANUAIS
+                </h3>
+
+                <p>
+                    Desenvolva as capacidades fundamentais do personagem.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="lista-atributos"
+            id="lista-atributos"
+        >
+
+            <!-- Os atributos manuais continuam sendo gerados pelo JavaScript -->
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+    </section>
+
+
+            <!-- PERÍCIAS -->
+            <div
+                class="conteudo-aba"
+                id="aba-pericias"
+            >
+
+                <h2>
+                    PERÍCIAS
+                </h2>
+
+
+                <p>
+                    Área de perícias do personagem.
+                </p>
+
+            </div>
+
+
+            <!-- ANOTAÇÕES -->
+            <div
+                class="conteudo-aba"
+                id="aba-anotacoes"
+            >
+
+                <h2>
+                    ANOTAÇÕES
+                </h2>
+
+
+                <p>
+                    Área de anotações do personagem.
+                </p>
+
+            </div>
+
+
+            <!-- CALCULADORA -->
+            <div
+                class="conteudo-aba"
+                id="aba-calculadora"
+            >
+
+                <h2>
+                    CALCULADORA
+                </h2>
+
+
+                <p>
+                    Área da calculadora de porcentagens.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- RODAPÉ -->
+        <footer class="rodape">
+
+            <span>
+                SKYLAND RPG
+            </span>
+
+
+            <span>
+                FICHA DIGITAL
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- MODAL DE INFORMAÇÕES -->
+    <div
+        class="modal-overlay"
+        id="modal-informacoes"
+    >
+
+        <div class="modal">
+
+            <!-- BOTÃO FECHAR -->
+            <button
+                type="button"
+                class="modal-fechar"
+                id="fechar-modal"
+            >
+                ×
+            </button>
+
+
+            <!-- CABEÇALHO DO MODAL -->
+            <div class="modal-cabecalho">
+
+                <span
+                    class="modal-tipo"
+                    id="modal-tipo"
+                >
+                    CLASSE
+                </span>
+
+
+                <h2
+                    id="modal-titulo"
+                >
+                    Guerreiro
+                </h2>
+
+            </div>
+
+
+            <!-- DESCRIÇÃO -->
+            <p
+                class="modal-descricao"
+                id="modal-descricao"
+            >
+            </p>
+
+
+            <!-- BUFFS -->
+            <section class="modal-secao">
+
+                <h3>
+                    ✦ BUFFS
+                </h3>
+
+
+                <div
+                    id="modal-buffs"
+                    class="lista-modificadores"
+                >
+                </div>
+
+            </section>
+
+
+            <!-- DEBUFFS -->
+            <section class="modal-secao">
+
+                <h3>
+                    ✧ DEBUFFS
+                </h3>
+
+
+                <div
+                    id="modal-debuffs"
+                    class="lista-modificadores"
+                >
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT PRINCIPAL -->
+    <script
+        type="module"
+        src="js/index.js"
+    >
+    </script>
+
+</body>
+
+</html>
