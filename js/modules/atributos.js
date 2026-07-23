@@ -1,5 +1,7 @@
 import { atributos } from "../data/atributos.js";
 
+import { getModificadoresTotais } from "../state.js";
+
 // =========================================================
 // ESTADO DOS ATRIBUTOS MANUAIS
 // =========================================================
@@ -202,18 +204,16 @@ function atualizarInterfaceRecurso(recurso, valorMaximo) {
 // =========================================================
 
 // ATUALIZAR EXPERIÊNCIA (chamado após qualquer alteração)
-function atualizarExperiencia() {
+export function atualizarExperiencia() {
     // Verifica se o XP atual permite subir de nível
     while (experiencia.xpAtual >= experiencia.xpNecessario && experiencia.nivel < 20) {
-        experiencia.xpAtual -= experiencia.xpNecessario; // zera o excedente (ou pode deixar sobrar)
+        experiencia.xpAtual -= experiencia.xpNecessario;
         experiencia.nivel++;
         experiencia.xpNecessario = tabelaExperiencia[experiencia.nivel];
     }
 
-    // Se o XP atual ficou negativo (não deveria), corrige
     if (experiencia.xpAtual < 0) experiencia.xpAtual = 0;
 
-    // Atualiza a interface
     const elementoNivel = document.querySelector("#nivel-personagem");
     const elementoXpAtual = document.querySelector("#xp-atual");
     const elementoXpMaximo = document.querySelector("#xp-proximo-nivel");

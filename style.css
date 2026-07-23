@@ -712,6 +712,24 @@ button {
    CONTEÚDO DAS ABAS
    ========================================================= */
 
+/* Ajuste de espaçamento lateral para os cards de perícia */
+.grade-pericias {
+    padding: 0 20px; /* cria um respiro de 4px em cada lado */
+}
+
+/* Ou, se preferir aplicar na seção inteira: */
+.secao-pericias {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Alinha cabeçalho e introdução da aba de perícias com os cards */
+#aba-pericias .cabecalho-conteudo,
+#aba-pericias .introducao-pericias {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .conteudo-abas {
 
     padding: 28px;
@@ -1814,6 +1832,12 @@ button {
 
     }
 
+    .grade-pericias {
+
+        grid-template-columns: 1fr;
+
+    }
+
 }
 
 /* =========================================================
@@ -1861,4 +1885,677 @@ button {
 .acoes-imagem button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+/* =========================================================
+   PERÍCIAS
+   ========================================================= */
+
+
+.introducao-pericias {
+
+    max-width: 850px;
+
+    margin-bottom: 34px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+}
+
+
+.secao-pericias {
+
+    margin-bottom: 38px;
+
+}
+
+
+.titulo-secao-pericias {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.titulo-secao-pericias .simbolo-secao {
+
+    color: var(--azul-neon);
+
+    font-size: 1.5rem;
+
+    text-shadow:
+
+        0 0 10px
+
+        rgba(
+
+            0,
+
+            210,
+
+            255,
+
+            0.5
+
+        );
+
+}
+
+
+.titulo-secao-pericias h3 {
+
+    color: var(--texto-principal);
+
+    font-size: 1rem;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+.titulo-secao-pericias p {
+
+    margin-top: 4px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.8rem;
+
+}
+
+
+.grade-pericias {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(
+
+            2,
+
+            1fr
+
+        );
+
+    gap: 14px;
+
+}
+
+
+.card-pericia {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            var(--fundo-card),
+
+            #060b12
+
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-medio);
+
+    transition: var(--transicao);
+
+}
+
+
+.card-pericia:hover {
+
+    border-color: var(--borda-forte);
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+.pericia-cabecalho {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.pericia-cabecalho > div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.pericia-indicador {
+
+    color: var(--azul-neon);
+
+    text-shadow:
+
+        0 0 8px
+
+        var(--azul-neon);
+
+}
+
+
+.pericia-cabecalho h3 {
+
+    color: var(--texto-principal);
+
+    font-size: 0.95rem;
+
+}
+
+
+.pericia-descricao {
+
+    min-height: 62px;
+
+    color: var(--texto-secundario);
+
+    font-size: 0.78rem;
+
+    line-height: 1.6;
+
+}
+
+
+.pericia-controle {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid var(--borda);
+
+}
+
+
+.botao-pericia {
+
+    width: 36px;
+
+    height: 36px;
+
+    color: var(--azul-neon);
+
+    background: transparent;
+
+    border: 1px solid var(--borda);
+
+    border-radius: var(--raio-pequeno);
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    transition: var(--transicao);
+
+}
+
+
+.botao-pericia:hover {
+
+    color: var(--preto-absoluto);
+
+    background: var(--azul-neon);
+
+    border-color: var(--azul-neon);
+
+    box-shadow: var(--sombra-neon);
+
+}
+
+
+.valores-pericia {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+}
+
+
+.valor-manual-pericia {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 2px;
+
+}
+
+
+.pontos-pericia {
+
+    color: var(--texto-principal);
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+}
+
+
+.valor-manual-pericia small {
+
+    color: var(--texto-fraco);
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+.separador-pericia {
+
+    color: var(--texto-fraco);
+
+    font-size: 0.9rem;
+
+}
+
+
+.modificador-pericia {
+
+    color: var(--azul-celeste);
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+}
+
+
+.total-pericia {
+
+    color: var(--azul-neon);
+
+    font-size: 1.3rem;
+
+}
+
+/* =========================================================
+   RESPONSIVIDADE PARA PERÍCIAS
+   ========================================================= */
+
+/* Para tablets e telas médias: uma coluna */
+@media (max-width: 900px) {
+    .grade-pericias {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajusta o padding da aba para dar mais respiro */
+    #aba-pericias .cabecalho-conteudo,
+    #aba-pericias .introducao-pericias {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+/* Para celulares (já existente, mas reforçamos) */
+@media (max-width: 650px) {
+    .conteudo-abas {
+        padding: 20px;
+    }
+
+    .grade-pericias {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ajusta a introdução e cabeçalho */
+    #aba-pericias .cabecalho-conteudo,
+    #aba-pericias .introducao-pericias {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Cards ocupam largura total com pouco espaçamento */
+    .card-pericia {
+        padding: 14px;
+    }
+
+    .valores-pericia {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   ANOTAÇÕES
+   ========================================================= */
+
+.introducao-anotacoes {
+    max-width: 850px;
+    margin-bottom: 34px;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.grade-anotacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.card-anotacao {
+    padding: 20px;
+    background: linear-gradient(145deg, var(--fundo-card), #060b12);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-medio);
+    transition: var(--transicao);
+}
+
+.card-anotacao:hover {
+    border-color: var(--borda-forte);
+    box-shadow: var(--sombra-neon);
+}
+
+.anotacao-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.anotacao-indicador {
+    color: var(--azul-neon);
+    text-shadow: 0 0 8px var(--azul-neon);
+    font-size: 1.2rem;
+}
+
+.anotacao-cabecalho h3 {
+    color: var(--texto-principal);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+}
+
+.anotacao-descricao {
+    color: var(--texto-secundario);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.anotacao-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px 14px;
+    color: var(--texto-principal);
+    background: var(--fundo-principal);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-pequeno);
+    outline: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    resize: vertical;
+    transition: var(--transicao);
+}
+
+.anotacao-textarea:focus {
+    border-color: var(--azul-neon);
+    box-shadow: var(--sombra-neon);
+}
+
+.anotacao-textarea::placeholder {
+    color: var(--texto-fraco);
+    opacity: 0.7;
+}
+
+.anotacoes-acoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+    gap: 12px;
+}
+
+.botao-salvar-anotacoes {
+    padding: 10px 24px;
+    color: var(--azul-neon);
+    background: transparent;
+    border: 1px solid var(--borda-forte);
+    border-radius: var(--raio-pequeno);
+    cursor: pointer;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition: var(--transicao);
+}
+
+.botao-salvar-anotacoes:hover {
+    color: var(--preto-absoluto);
+    background: var(--azul-neon);
+    box-shadow: var(--sombra-neon);
+}
+
+/* Responsividade para anotações */
+@media (max-width: 650px) {
+    .card-anotacao {
+        padding: 14px;
+    }
+    .anotacao-textarea {
+        min-height: 80px;
+        font-size: 0.85rem;
+    }
+    .anotacoes-acoes {
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   AJUSTES DE ESPAÇAMENTO PARA ABA DE ANOTAÇÕES
+   ========================================================= */
+
+/* Alinha cabeçalho e introdução com os cards */
+#aba-anotacoes .cabecalho-conteudo,
+#aba-anotacoes .introducao-anotacoes {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Remove o padding extra dos cards (já têm padding interno) */
+.card-anotacao {
+    padding: 20px; /* mantém o padding interno, sem padding lateral extra */
+}
+
+/* Esconde o botão de salvar (já que o auto-save está ativo) */
+.anotacoes-acoes {
+    display: none;
+}
+
+/* =========================================================
+   CALCULADORA
+   ========================================================= */
+
+.calculadora-wrapper {
+    max-width: 420px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, var(--fundo-card), #060b12);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-medio);
+    padding: 20px;
+    box-shadow: var(--sombra-neon);
+}
+
+.calculadora-display {
+    background: var(--preto-absoluto);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-pequeno);
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.calculadora-historico {
+    color: var(--texto-fraco);
+    font-size: 0.85rem;
+    min-height: 24px;
+    word-break: break-all;
+}
+
+.calculadora-resultado {
+    color: var(--azul-neon);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(0, 210, 255, 0.3);
+    transition: all 0.15s ease;
+}
+
+.calculadora-botoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-btn {
+    padding: 14px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: transparent;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-pequeno);
+    color: var(--texto-principal);
+    cursor: pointer;
+    transition: var(--transicao);
+    text-align: center;
+    user-select: none;
+}
+
+.calc-btn:hover {
+    background: var(--fundo-card-hover);
+    border-color: var(--borda-forte);
+    box-shadow: var(--sombra-neon);
+}
+
+.calc-btn:active {
+    transform: scale(0.95);
+}
+
+.calc-btn-numero {
+    color: var(--texto-principal);
+}
+
+.calc-btn-operador {
+    color: var(--azul-neon);
+    font-size: 1.4rem;
+}
+
+.calc-btn-limpar {
+    color: #ff6b6b;
+}
+
+.calc-btn-igual {
+    background: var(--azul-neon);
+    color: var(--preto-absoluto);
+    border-color: var(--azul-neon);
+    font-size: 1.6rem;
+}
+
+.calc-btn-igual:hover {
+    background: var(--azul-eletrico);
+    border-color: var(--azul-eletrico);
+    box-shadow: var(--sombra-neon-forte);
+}
+
+.calc-btn-zero {
+    grid-column: span 2;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .calculadora-wrapper {
+        padding: 14px;
+    }
+    .calc-btn {
+        padding: 12px 0;
+        font-size: 1rem;
+    }
+    .calculadora-resultado {
+        font-size: 1.8rem;
+    }
+}
+
+.calculadora-wrapper {
+    margin-bottom: 28px; /* ou 20px, ajuste conforme preferir */
+}
+
+/* Ajustes para navegação em telas pequenas */
+@media (max-width: 650px) {
+    .navegacao-abas {
+        flex-wrap: wrap; /* permite que as abas quebrem linha */
+        overflow-x: visible; /* remove rolagem horizontal */
+        gap: 4px; /* pequeno espaço entre as abas */
+        padding: 4px; /* respiro */
+    }
+
+    .aba {
+        flex: 1 0 auto; /* permite que as abas cresçam conforme necessário */
+        min-width: 80px; /* reduz tamanho mínimo */
+        padding: 12px 10px; /* reduz padding */
+        font-size: 0.75rem; /* texto menor */
+        letter-spacing: 0.04em; /* ajusta espaçamento */
+        text-align: center; /* centraliza texto */
+    }
+
+    .aba span {
+        margin-right: 4px; /* reduz espaço entre ícone e texto */
+        font-size: 0.9rem;
+    }
+
+    /* Remove a barra de rolagem horizontal do body */
+    body {
+        overflow-x: hidden;
+    }
 }
