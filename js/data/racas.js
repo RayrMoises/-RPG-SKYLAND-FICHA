@@ -20,13 +20,9 @@ export const racas = {
                 nome: "Ponto de Atributo Extra",
 
                 descricao:
-                    "Recebe +2 pontos de atributo extra na criação de personagem, à escolha do jogador.",
+                    "Recebe +5 pontos de atributo extra na criação de personagem, à escolha do jogador.",
 
-                modificadores: {
-
-                    pontosAtributoCriacao: 2
-
-                }
+                modificadores: {}
 
             },
 
@@ -35,25 +31,9 @@ export const racas = {
                 nome: "Evolução Acelerada",
 
                 descricao:
-                    "Recebe +2 pontos de atributo adicionais nos níveis 5, 10, 15 e 20.",
+                    "Sempre que você evoluir de nível, pode rodar 1d10 e o valor que cair, são os pontos extras de atributo que você recebe.",
 
-                modificadores: {
-
-                    pontosAtributoPorNivel: 2,
-
-                    niveisDeAtivacao: [
-
-                        5,
-
-                        10,
-
-                        15,
-
-                        20
-
-                    ]
-
-                }
+                modificadores: {}
 
             },
 
@@ -62,11 +42,13 @@ export const racas = {
                 nome: "Inteligência Adaptativa",
 
                 descricao:
-                    "Recebe +2 em testes de perícias relacionadas à Inteligência.",
+                    "Recebe +4 em inteligência e +2 em investigação.",
 
                 modificadores: {
 
-                    periciasRelacionadasInteligencia: 2
+                    inteligencia: 4,
+
+                    investigacao: 2
 
                 }
 
@@ -112,15 +94,17 @@ export const racas = {
                 nome: "Mestre da Mana",
 
                 descricao:
-                    "Recebe +25% na reserva máxima de Mana e +2 em testes de Arcanismo e perícias relacionadas à magia.",
+                    "Recebe +25% na reserva máxima de Mana, +4 na perícia de arcanismo e +2 em natureza e religião.",
 
                 modificadores: {
 
                     manaPercentual: 25,
 
-                    arcanismo: 2,
-
-                    periciasRelacionadasMagia: 2
+                    arcanismo: 4,
+                    
+                    natureza: 2,
+                    
+                    religiao: 2
 
                 }
 
@@ -204,17 +188,17 @@ export const racas = {
                 nome: "Conexão com a Natureza",
 
                 descricao:
-                    "Recebe +20% em efeitos de cura recebidos e +2 em testes relacionados à natureza, sobrevivência e cura.",
+                    "Recebe +20% em efeitos de cura recebidos e +4 em testes relacionados à natureza, sobrevivência e cura.",
 
                 modificadores: {
 
                     curaRecebidaPercentual: 20,
 
-                    natureza: 2,
+                    natureza: 4,
 
-                    sobrevivencia: 2,
+                    sobrevivencia: 4,
 
-                    medicina: 2
+                    medicina: 4
 
                 }
 
@@ -308,20 +292,37 @@ export const racas = {
 
             {
 
-                nome: "Força Brutal",
+                nome: "Experiência de Luta",
 
                 descricao:
-                    "Recebe +15% de dano em Golpes Pesados e +2 em Atletismo, Intimidação e Armas Brancas.",
+                    "Você recebe +4 pontos de perícias em fortitude e briga, enquanto +2 em bloqueio.",
 
                 modificadores: {
 
-                    danoGolpesPesadosPercentual: 15,
+                    danoFisicoPercentual: 15,
 
-                    atletismo: 2,
+                    fortitude: 4,
 
-                    intimidacao: 2,
+                    briga: 4,
 
-                    armasBrancas: 2
+                    bloqueio: 2,
+
+                    intimidacao: 4
+
+                }
+
+            },
+
+                        {
+
+                nome: "Mestre do Arremesso",
+
+                descricao:
+                    "Orc's são bem treinados na arte do arremesso, para serem capazes de arremessar lanças de longa distância contra inimigos.",
+
+                modificadores: {
+
+                    arremesso: 4
 
                 }
 
@@ -391,7 +392,7 @@ export const racas = {
 
                 modificadores: {
 
-                    resistenciaMentalMedoProvocacao: -3
+                    resistenciaMental: -3
 
                 }
 
@@ -437,15 +438,15 @@ export const racas = {
                 nome: "Reflexos Felinos",
 
                 descricao:
-                    "Recebe +2 em Furtividade, Acrobacia e Percepção. Nunca fica no estado 'Caído' ao ser derrubado ou cair de altura, reequilibrando-se automaticamente.",
+                    "Recebe +4 em Furtividade, Acrobacia e Percepção. Nunca fica no estado 'Caído' ao ser derrubado ou cair de altura, reequilibrando-se automaticamente.",
 
                 modificadores: {
 
-                    furtividade: 2,
+                    furtividade: 4,
 
-                    acrobacia: 2,
+                    acrobacia: 4,
 
-                    percepcao: 2,
+                    percepcao: 4,
 
                     imuneEstadoCaido: true
 
@@ -458,15 +459,15 @@ export const racas = {
                 nome: "Comerciante Nômade",
 
                 descricao:
-                    "Recebe +2 em Persuasão, Enganação e perícias relacionadas a comércio ou negociação.",
+                    "Recebe +3 em Persuasão, Enganação e perícias relacionadas a comércio ou negociação.",
 
                 modificadores: {
 
-                    persuasao: 2,
+                    persuasao: 3,
 
-                    enganacao: 2,
+                    enganacao: 3,
 
-                    comercio: 2
+                    comercio: 3
 
                 }
 
@@ -496,28 +497,11 @@ export const racas = {
                 nome: "Impulsividade Felina",
 
                 descricao:
-                    "Recebe -2 em testes de Vontade e Resistência Mental.",
+                    "Recebe -2 em testes de Resistência Mental.",
 
                 modificadores: {
-
-                    vontade: -2,
 
                     resistenciaMental: -2
-
-                }
-
-            },
-
-            {
-
-                nome: "Estigma de Nômade",
-
-                descricao:
-                    "Em algumas cidades conservadoras, sofre preconceito por ser visto como ladrão ou oportunista, recebendo -2 em testes sociais iniciais.",
-
-                modificadores: {
-
-                    testesSociaisIniciaisCidadesConservadoras: -2
 
                 }
 
@@ -615,7 +599,7 @@ export const racas = {
 
                 modificadores: {
 
-                    testesSociaisEmCidades: -2
+                    testesSociaisEmCidades: -4
 
                 }
 
@@ -680,15 +664,15 @@ export const racas = {
                 nome: "Escamas Ancestrais",
 
                 descricao:
-                    "Recebe +20% de resistência ao elemento escolhido para o Sopro Dracônico e +2 em testes de Vigor e Intimidação.",
+                    "Recebe +20% de resistência ao elemento escolhido para o Sopro Dracônico e +4 em testes de Vigor e Intimidação.",
 
                 modificadores: {
 
                     resistenciaElementoEscolhidoPercentual: 20,
 
-                    vigor: 2,
+                    vigor: 4,
 
-                    intimidacao: 2
+                    intimidacao: 4
 
                 }
 
@@ -699,15 +683,12 @@ export const racas = {
                 nome: "Herança das Alturas",
 
                 descricao:
-                    "Recebe +2 em testes de Atletismo relacionados a escalada, voo planado e sobrevivência em ambientes montanhosos ou rochosos.",
+                    "Recebe +4 em testes de Atletismo e Acrobacia.",
 
                 modificadores: {
 
-                    atletismoEscalada: 2,
-
-                    atletismoVooPlanado: 2,
-
-                    sobrevivenciaAmbientesMontanhosos: 2
+                    atletismo: 4,
+                    acrobacia: 4
 
                 }
 
@@ -722,11 +703,11 @@ export const racas = {
                 nome: "Sangue Dracônico Visível",
 
                 descricao:
-                    "Recebe -2 em testes sociais em regiões que temem ou caçam descendentes dracônicos.",
+                    "Recebe -4 em testes sociais em regiões que temem ou caçam descendentes dracônicos.",
 
                 modificadores: {
 
-                    testesSociaisRegioesHostis: -2
+                    testesSociaisRegioesHostis: -4
 
                 }
 
@@ -741,24 +722,7 @@ export const racas = {
 
                 modificadores: {
 
-                    disfarceAmbienteUrbano: -3,
-
-                    furtividadeAmbienteUrbano: -3
-
-                }
-
-            },
-
-            {
-
-                nome: "Orgulho Dracônico",
-
-                descricao:
-                    "Recebe -3 em testes de Diplomacia quando sua superioridade ancestral é questionada.",
-
-                modificadores: {
-
-                    diplomaciaQuandoQuestionado: -3
+                    furtividade: -3
 
                 }
 
@@ -823,15 +787,15 @@ export const racas = {
                 nome: "Filho da Noite",
 
                 descricao:
-                    "Recebe +2 em Furtividade, Percepção e Sobrevivência durante a noite ou em ambientes escuros.",
+                    "Recebe +4 em Furtividade, Percepção e Sobrevivência durante a noite ou em ambientes escuros.",
 
                 modificadores: {
 
-                    furtividadeAmbienteEscuro: 2,
+                    furtividade: 4,
+                    
+                    percepcao: 4,
 
-                    percepcaoAmbienteEscuro: 2,
-
-                    sobrevivenciaAmbienteEscuro: 2
+                    sobrevivencia: 4
 
                 }
 
@@ -878,11 +842,18 @@ export const racas = {
                 nome: "Rejeição Universal",
 
                 descricao:
-                    "Recebe -2 em todos os testes sociais em cidades e vilarejos, onde são frequentemente temidos, expulsos ou atacados.",
+                    "Recebe -3 em todos os testes sociais em cidades e vilarejos, onde são frequentemente temidos, expulsos ou atacados.",
 
                 modificadores: {
 
-                    testesSociaisCidadesEVilarejos: -2
+                    persuasao: -3,
+
+                    intimidacao: +3,
+
+                    enganacao: -3,
+
+                    interpretacao: -3
+
 
                 }
 
@@ -939,19 +910,17 @@ export const racas = {
                 nome: "Aura Luminosa",
 
                 descricao:
-                    "Recebe +2 em Persuasão, Diplomacia e perícias sociais. Pode ativar uma Explosão de Luz até 2 vezes por combate, causando dano de luz e deixando inimigos próximos cegos e atordoados por 2 rodadas.",
+                    "Recebe +3 em Persuasão e perícias sociais. Pode ativar uma Explosão de Luz até 3 vezes por combate, causando dano de luz e deixando inimigos próximos cegos e atordoados por 2 rodadas.",
 
                 modificadores: {
 
-                    persuasao: 2,
+                    persuasao: 3,
 
-                    diplomacia: 2,
+                    interpretacao: 3,
 
-                    periciasSociais: 2,
+                    intimidacao: -3,
 
-                    explosaoDeLuzPorCombate: 2,
-
-                    duracaoCegueiraEAtordoamentoRodadas: 2
+                    enganacao: 3
 
                 }
 
@@ -966,13 +935,7 @@ export const racas = {
 
                 modificadores: {
 
-                    periciasCura: 2,
-
-                    conhecimentoArcano: 2,
-
-                    conhecimentoEspiritual: 2,
-
-                    efeitosRestauradorPercentual: 15
+                    medicina: 2
 
                 }
 
@@ -1082,7 +1045,7 @@ export const racas = {
                 nome: "Evolução Modular",
 
                 descricao:
-                    "Não possui uma classe fixa. A cada nível, ganha 2 habilidades novas, criadas em conjunto pelo jogador e pelo Mestre, podendo ser mecânicas, mágicas ou híbridas.",
+                    "Não possui uma classe fixa. A cada nível, ganha 2 habilidades novas, criadas em conjunto pelo jogador e pelo Mestre, podendo ser mecânicas, mágicas ou híbridas. Também pode aprender habilidades de qualquer classe se preferir escolher uma especifica.",
 
                 modificadores: {
 
@@ -1257,13 +1220,17 @@ export const racas = {
                 nome: "Aparência Aberrante",
 
                 descricao:
-                    "Possui extrema dificuldade em testes de Diplomacia ou Carisma com raças urbanas, recebendo -5.",
+                    "Possui extrema dificuldade em testes sociais.",
 
                 modificadores: {
 
-                    diplomaciaComRacasUrbanas: -5,
+                    interpretacao: -5,
 
-                    carismaComRacasUrbanas: -5
+                    enganacao: -5,
+
+                    intimidacao: +3,
+
+                    persuasao: -5
 
                 }
 
@@ -1294,13 +1261,15 @@ export const racas = {
                 nome: "Leveza Celestial",
 
                 descricao:
-                    "Recebe +20% de Evasiva para reduzir danos de ataques e +3 de bônus em rolagens de Evasiva.",
+                    "Recebe +20% de Evasiva para reduzir danos de ataques e +4 de bônus em rolagens de Esquiva e Acrobacia.",
 
                 modificadores: {
 
                     evasivaPercentual: 20,
 
-                    rolagemEvasiva: 3
+                    acrobacia: 4,
+
+                    esquiva: 4
 
                 }
 

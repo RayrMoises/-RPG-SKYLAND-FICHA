@@ -1,5 +1,4 @@
 import { atributos } from "../data/atributos.js";
-
 import { getModificadoresTotais } from "../state.js";
 
 // =========================================================
@@ -22,8 +21,8 @@ export const recursosAtuais = {
 // =========================================================
 export const experiencia = {
     nivel: 1,
-    xpAtual: 0,          // progresso dentro do nível atual
-    xpNecessario: 100    // valor da tabela para o nível atual
+    xpAtual: 0,
+    xpNecessario: 100
 };
 
 // =========================================================
@@ -52,7 +51,7 @@ const tabelaExperiencia = {
     20: 22800
 };
 
-const XP_MAXIMO_GLOBAL = tabelaExperiencia[20]; // 22800
+const XP_MAXIMO_GLOBAL = tabelaExperiencia[20];
 
 // =========================================================
 // INICIALIZAR ATRIBUTOS MANUAIS
@@ -77,7 +76,7 @@ export function alterarPontosAtributo(idAtributo, quantidade) {
 }
 
 // =========================================================
-// CALCULAR EFEITOS DOS ATRIBUTOS MANUAIS
+// CALCULAR EFEITOS DOS ATRIBUTOS (MANUAIS + BUFFS/DEBUFFS)
 // =========================================================
 export function calcularEfeitosAtributos() {
     const efeitosTotais = {
@@ -93,6 +92,7 @@ export function calcularEfeitosAtributos() {
         iniciativa: 0
     };
 
+    // 1. Atributos manuais
     Object.keys(atributos).forEach((idAtributo) => {
         const dadosAtributo = atributos[idAtributo];
         const pontosInvestidos = pontosAtributos[idAtributo] ?? 0;
@@ -105,6 +105,33 @@ export function calcularEfeitosAtributos() {
             }
             efeitosTotais[atributoVisual] += valorCalculado;
         });
+    });
+
+    // 2. Modificadores de classe/raça (buffs/debuffs)
+    const mods = getModificadoresTotais();
+
+    // 2a. Modificadores fixos
+    Object.keys(mods).forEach(chave => {
+        const valor = mods[chave];
+        if (efeitosTotais[chave] !== undefined) {
+            efeitosTotais[chave] += valor;
+        }
+    });
+
+    // 2b. Modificadores percentuais
+    Object.keys(mods).forEach(chave => {
+        if (chave.endsWith('Percentual')) {
+            const baseKey = chave.replace('Percentual', '');
+            if (efeitosTotais[baseKey] !== undefined) {
+                const percentual = mods[chave] / 100;
+                efeitosTotais[baseKey] = efeitosTotais[baseKey] * (1 + percentual);
+            }
+        }
+    });
+
+    // 3. Arredondar
+    Object.keys(efeitosTotais).forEach(key => {
+        efeitosTotais[key] = Math.round(efeitosTotais[key]);
     });
 
     return efeitosTotais;
@@ -198,14 +225,9 @@ function atualizarInterfaceRecurso(recurso, valorMaximo) {
 }
 
 // =========================================================
-// =========================================================
 // SISTEMA DE EXPERIÊNCIA E NÍVEL
 // =========================================================
-// =========================================================
-
-// ATUALIZAR EXPERIÊNCIA (chamado após qualquer alteração)
 export function atualizarExperiencia() {
-    // Verifica se o XP atual permite subir de nível
     while (experiencia.xpAtual >= experiencia.xpNecessario && experiencia.nivel < 20) {
         experiencia.xpAtual -= experiencia.xpNecessario;
         experiencia.nivel++;
@@ -229,57 +251,36 @@ export function atualizarExperiencia() {
     }
 }
 
-// ADICIONAR EXPERIÊNCIA (usado pelos botões + e -)
 export function adicionarExperiencia(quantidade) {
     if (quantidade === 0) return;
-    // Se já está no nível 20, limita o XP ao máximo do nível 20
     if (experiencia.nivel === 20) {
         experiencia.xpAtual = Math.min(experiencia.xpAtual + quantidade, XP_MAXIMO_GLOBAL);
-        // Garante que não fique negativo
         if (experiencia.xpAtual < 0) experiencia.xpAtual = 0;
         atualizarExperiencia();
         return;
     }
-
     experiencia.xpAtual += quantidade;
-    // Garante que não fique negativo
     if (experiencia.xpAtual < 0) experiencia.xpAtual = 0;
     atualizarExperiencia();
 }
 
-// DEFINIR EXPERIÊNCIA MANUALMENTE (usado pelo campo editável)
 export function definirExperiencia(valor) {
     const valorNumerico = Number(valor);
     if (isNaN(valorNumerico)) return;
-
-    // Se o nível for 20, limita ao máximo
     if (experiencia.nivel === 20) {
         experiencia.xpAtual = Math.min(valorNumerico, XP_MAXIMO_GLOBAL);
     } else {
-        // Não permite valores negativos
         experiencia.xpAtual = Math.max(0, valorNumerico);
     }
-    // OBS: Não forçamos descida de nível aqui; a descida só ocorre via regredirNivel()
-    // Mas se o usuário digitar um valor menor que o necessário para o nível atual, o nível permanece.
-    // Para manter a consistência, garantimos que o XP não ultrapasse o necessário para o nível atual?
-    // Na verdade, se ele digitar 0 no nível 2, queremos que permaneça nível 2 com XP 0 (sem descer).
-    // Então não mexemos no nível aqui, apenas atualizamos a interface.
-    // Mas se ele digitar um valor que permita subir, a função atualizarExperiencia vai subir automaticamente.
     atualizarExperiencia();
 }
 
-// REGREDIR NÍVEL (usado pelo botão - quando XP atual for 0)
 export function regredirNivel() {
-    if (experiencia.nivel <= 1) return; // não desce abaixo de 1
-    // Só permite regredir se o XP atual for 0
-    if (experiencia.xpAtual !== 0) {
-        // Opcional: avisar que não pode regredir com XP acumulado
-        return;
-    }
-
+    if (experiencia.nivel <= 1) return;
+    if (experiencia.xpAtual !== 0) return;
     experiencia.nivel--;
     experiencia.xpNecessario = tabelaExperiencia[experiencia.nivel];
-    experiencia.xpAtual = 0; // zera o XP no novo nível
+    experiencia.xpAtual = 0;
     atualizarExperiencia();
 }
 
@@ -332,9 +333,6 @@ export function renderizarAtributos() {
     configurarBotoesAtributos();
 }
 
-// =========================================================
-// CONFIGURAR BOTÕES DOS ATRIBUTOS MANUAIS
-// =========================================================
 function configurarBotoesAtributos() {
     const botoes = document.querySelectorAll(".botao-atributo");
     botoes.forEach((botao) => {
@@ -347,9 +345,6 @@ function configurarBotoesAtributos() {
     });
 }
 
-// =========================================================
-// ATUALIZAR INTERFACE DOS ATRIBUTOS MANUAIS
-// =========================================================
 function atualizarInterfaceAtributos() {
     Object.keys(atributos).forEach((idAtributo) => {
         const elementoValor = document.querySelector(`[data-valor="${idAtributo}"]`);
@@ -362,36 +357,30 @@ function atualizarInterfaceAtributos() {
 // CONFIGURAR CONTROLES DOS RECURSOS (HP, Mana, Stamina, XP)
 // =========================================================
 export function configurarControlesRecursos() {
-    // --- Botões + e - ---
     const botoes = document.querySelectorAll(".botao-recurso");
     botoes.forEach((botao) => {
         botao.addEventListener('click', () => {
             const recurso = botao.dataset.recurso;
-            const acao = botao.dataset.acao; // 'aumentar' ou 'diminuir'
+            const acao = botao.dataset.acao;
 
             if (recurso === 'xp') {
                 if (acao === 'diminuir') {
-                    // Se o XP atual for 0 e nível > 1, regride
                     if (experiencia.xpAtual === 0 && experiencia.nivel > 1) {
                         regredirNivel();
                     } else {
-                        // Subtrai 1 (e permite valores negativos? Não, a função trata)
                         adicionarExperiencia(-1);
                     }
                 } else {
-                    // Aumenta 1
                     adicionarExperiencia(1);
                 }
                 return;
             }
 
-            // Para HP, Mana, Stamina
             const quantidade = acao === 'aumentar' ? 1 : -1;
             alterarRecurso(recurso, quantidade);
         });
     });
 
-    // --- Campos editáveis (clique para digitar) ---
     const camposEditaveis = document.querySelectorAll("[data-recurso-atual]");
     camposEditaveis.forEach((campo) => {
         campo.addEventListener('click', () => {

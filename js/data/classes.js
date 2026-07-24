@@ -107,7 +107,10 @@ export const classes = {
                 descricao:
                     "Ataques ignoram 10% da Defesa Física contra inimigos feridos na mesma rodada.",
 
-                modificadores: {}
+                modificadores: {
+                    
+
+                }
 
             }
 
@@ -133,11 +136,11 @@ export const classes = {
                 nome: "Redução de Peso",
 
                 descricao:
-                    "Usar armaduras pesadas reduz a Evasiva em 20%.",
+                    "Usar armaduras pesadas reduz a Evasiva em 10%.",
 
                 modificadores: {
 
-                    evasivaPercentual: -20
+                    evasivaPercentual: -10
 
                 }
 
@@ -179,7 +182,9 @@ export const classes = {
                 descricao:
                     "Causa +30% de dano físico contra alvos desprevenidos, flanqueados ou que não viram o Ladino.",
 
-                modificadores: {}
+                modificadores: {
+
+                }
 
             },
 
@@ -187,9 +192,20 @@ export const classes = {
                 nome: "Mãos Leves",
 
                 descricao:
-                    "Concede +2 em rolagens de Roubo, arrombamento e desarmamento de armadilhas.",
+                    "Concede +4 em rolagens de Roubo, arrombamento e desarmamento de armadilhas.",
 
-                modificadores: {}
+                modificadores: {
+                    roubo: 4,
+
+                    acrobacia: 2,
+
+                    arrombamento: 4,
+
+                    prestidigitacao: 4,
+
+                    sobrevivencia: 2
+
+                }
 
             }
 
@@ -216,86 +232,55 @@ export const classes = {
     },
 
 
-    atirador: {
-
-        id: "atirador",
-
-        nome: "Atirador",
-
-        descricao:
-            "Especialista em combate à distância e ataques de precisão.",
-
-        buffs: [
-
-            {
-                nome: "Especialista de Vanguarda",
-
-                descricao:
-                    "Ignora penalidades de distância, vento e cobertura parcial.",
-
-                modificadores: {}
-
-            },
-
-            {
-                nome: "Cadência Veloz",
-
-                descricao:
-                    "Pode recarregar e disparar no mesmo turno sem gastar ações adicionais.",
-
-                modificadores: {}
-
-            },
-
-            {
-                nome: "Ponto Vulnerável",
-
-                descricao:
-                    "Causa +15% de dano contra inimigos engajados em combate corpo a corpo com aliados.",
-
-                modificadores: {
-
-                    danoProjetilPercentual: 15
-
-                }
-
+atirador: {
+    id: "atirador",
+    nome: "Atirador",
+    descricao: "Especialista em combate à distância e ataques de precisão.",
+    buffs: [
+        {
+            nome: "Especialista de Vanguarda",
+            descricao: "Ignora penalidades de distância, vento e cobertura parcial.",
+            modificadores: {}
+        },
+        {
+            nome: "Cadência Veloz",
+            descricao: "Pode recarregar e disparar no mesmo turno sem gastar ações adicionais.",
+            modificadores: {}
+        },
+        {
+            nome: "Ponto Vulnerável",
+            descricao: "Causa +15% de dano contra inimigos engajados em combate corpo a corpo com aliados.",
+            modificadores: {
+                danoProjetilPercentual: 15
             }
-
-        ],
-
-        debuffs: [
-
-            {
-                nome: "Desvantagem de Proximidade",
-
-                descricao:
-                    "Sofre -20% de dano físico em combate corpo a corpo.",
-
-                modificadores: {
-
-                    danoFisicoPercentual: -20
-
-                }
-
-            },
-
-            {
-                nome: "Foco Fixado",
-
-                descricao:
-                    "Enquanto mira ou ataca à distância, recebe +15% de dano de ataques surpresa.",
-
-                modificadores: {
-
-                    danoSurpresaRecebidoPercentual: 15
-
-                }
-
+        },
+        {
+            nome: "Precisão Letal",
+            descricao: "Recebe +4 em testes de Pontaria e Esquiva.",
+            modificadores: {
+                pontaria: 4,
+                acrobacia: 4,
+                esquiva: 4
             }
-
-        ]
-
-    },
+        }
+    ],
+    debuffs: [
+        {
+            nome: "Desvantagem de Proximidade",
+            descricao: "Sofre -20% de dano físico em combate corpo a corpo.",
+            modificadores: {
+                danoFisicoPercentual: -20
+            }
+        },
+        {
+            nome: "Foco Fixado",
+            descricao: "Enquanto mira ou ataca à distância, recebe +15% de dano de ataques surpresa.",
+            modificadores: {
+                danoSurpresaRecebidoPercentual: 15
+            }
+        }
+    ]
+},
 
 
     mago: {

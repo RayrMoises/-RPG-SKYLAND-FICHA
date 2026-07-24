@@ -29,7 +29,6 @@ export const pericias = {
     // PERÍCIAS FÍSICAS
     // =====================================================
 
-
     atletismo: {
 
         id: "atletismo",
@@ -143,6 +142,32 @@ export const pericias = {
 
         descricao:
             "Amedrontar, coagir e quebrar a vontade de alguém usando ameaças, força ou presença intimidadora."
+
+    },
+
+    resistenciaMental: {
+
+        id: "resistenciaMental",
+
+        nome: "Resistência Mental",
+
+        categoria: "mentaisSociais",
+
+        descricao:
+            "Sua capacidade de resistir a ataques e efeitos mentais."
+
+    },
+
+    inteligencia: {
+
+        id: "inteligencia",
+
+        nome: "Inteligência",
+
+        categoria: "mentaisSociais",
+
+        descricao:
+            "A inteligência pode ser bastante útil pra diversas situações."
 
     },
 
@@ -296,6 +321,18 @@ export const pericias = {
     // PERÍCIAS DE COMBATE E SOBREVIVÊNCIA
     // =====================================================
 
+    fortitude: {
+
+        id: "fortitude",
+
+        nome: "Fortitude",
+
+        categoria: "combateSobrevivencia",
+
+        descricao:
+            "É sua capacidade de lutar."
+
+    },
 
     esquiva: {
 
@@ -363,6 +400,45 @@ export const pericias = {
 
         descricao:
             "Encontrar água e comida, caçar, pescar, construir abrigos, rastrear criaturas e navegar em ambientes selvagens."
+
+    },
+
+        roubo: {
+
+        id: "roubo",
+
+        nome: "Roubo",
+
+        categoria: "combateSobrevivencia",
+
+        descricao:
+            "Sua habilidade de roubo, caso queira roubar algo sem ser visto."
+
+    },
+
+        arrombamento: {
+
+        id: "arrombamento",
+
+        nome: "Arrombamento",
+
+        categoria: "combateSobrevivencia",
+
+        descricao:
+            "Sua habilidade de arrombar coisas, como abrir lugares trancados ou baús."
+
+    },
+
+        arremesso: {
+
+        id: "arremesso",
+
+        nome: "Arremesso",
+
+        categoria: "combateSobrevivencia",
+
+        descricao:
+            "Ok, você talvez não seja bom usando armas... Mas quem sabe dando pedrada ou arremessando lanças?"
 
     },
 
