@@ -10,9 +10,9 @@ export const pontosAtributos = {};
 // ESTADO ATUAL DOS RECURSOS (HP, Mana, Stamina)
 // =========================================================
 export const recursosAtuais = {
-    hp: 0,
-    mana: 0,
-    stamina: 0,
+    hp: 50,
+    mana: 50,
+    stamina: 50,
     xp: 0   // esse campo não é usado para XP, mantido por compatibilidade
 };
 
@@ -79,10 +79,11 @@ export function alterarPontosAtributo(idAtributo, quantidade) {
 // CALCULAR EFEITOS DOS ATRIBUTOS (MANUAIS + BUFFS/DEBUFFS)
 // =========================================================
 export function calcularEfeitosAtributos() {
+    // Define valores base para HP, Mana e Stamina
     const efeitosTotais = {
-        hp: 0,
-        mana: 0,
-        stamina: 0,
+        hp: 50,
+        mana: 50,
+        stamina: 50,
         danoFisico: 0,
         defesaFisica: 0,
         defesaMagica: 0,
@@ -92,7 +93,7 @@ export function calcularEfeitosAtributos() {
         iniciativa: 0
     };
 
-    // 1. Atributos manuais
+    // 1. Atributos manuais (somam sobre os valores base)
     Object.keys(atributos).forEach((idAtributo) => {
         const dadosAtributo = atributos[idAtributo];
         const pontosInvestidos = pontosAtributos[idAtributo] ?? 0;
@@ -168,6 +169,7 @@ function atualizarValorVisual(nomeAtributo, valor) {
 // ATUALIZAR RECURSOS (HP, Mana, Stamina)
 // =========================================================
 function atualizarValorRecurso(recurso, novoValorMaximo) {
+    // novoValorMaximo já inclui o valor base (50) + bônus
     const valorMaximo = Math.max(0, novoValorMaximo);
     const valorAtualAnterior = recursosAtuais[recurso];
     recursosAtuais[recurso] = Math.min(valorAtualAnterior, valorMaximo);
